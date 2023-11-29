@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "145634888749",
+    "project_id": "jetareader-d2204",
+    "storage_bucket": "jetareader-d2204.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:145634888749:android:01cd6d645e0ae0332dfca4",
+        "android_client_info": {
+          "package_name": "com.example.onlinelibrary"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHCbjVRZ_aUXhDz08gUWQQzCKV0QBjIfE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
