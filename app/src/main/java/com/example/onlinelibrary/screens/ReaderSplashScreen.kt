@@ -23,6 +23,7 @@ import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.example.onlinelibrary.components.ReaderLogo
 import com.example.onlinelibrary.navigation.ReaderScreens
 import kotlinx.coroutines.delay
 
@@ -65,14 +66,4 @@ fun ReaderSplashScreen(navController: NavController) {
             )
         }
     }
-}
-
-@Composable
-private fun ReaderLogo(modifier: Modifier = Modifier) {
-    Text(
-        modifier = modifier.padding(bottom = 16.dp),
-        text = "Reader app",
-        style = MaterialTheme.typography.headlineMedium,
-        color = Color.Red.copy(alpha = 0.5f)
-    )
 }
