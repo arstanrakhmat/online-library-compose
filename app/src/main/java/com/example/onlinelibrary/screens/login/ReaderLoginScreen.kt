@@ -51,7 +51,6 @@ fun ReaderLoginScreen(
     Surface(modifier = Modifier.fillMaxSize()) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
-//            verticalArrangement = Arrangement.Center
         ) {
             ReaderLogo()
             if (showLoginForm.value)
@@ -62,7 +61,9 @@ fun ReaderLoginScreen(
                 }
             else {
                 UserForm(loading = false, isCreateAccount = true) { email, password ->
-                    //TODO: create FB account
+                    viewModel.createUserWithEmailAndPassword(email, password) {
+                        navController.navigate(ReaderScreens.ReaderHomeScreen.name)
+                    }
                 }
             }
         }
@@ -103,7 +104,7 @@ fun UserForm(
     val passwordFocusRequest = FocusRequester.Default
     val keyboardController = LocalSoftwareKeyboardController.current
     val valid = remember(email.value, password.value) {
-        email.value.trim().isNotEmpty() && password.value.trim().isNotEmpty()
+        email.value.trim().isNotEmpty() && password.value.trim().length >= 6
     }
 
     val modifier = Modifier
