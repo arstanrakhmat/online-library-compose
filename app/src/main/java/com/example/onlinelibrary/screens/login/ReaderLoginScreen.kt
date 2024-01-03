@@ -39,11 +39,14 @@ import com.example.onlinelibrary.R
 import com.example.onlinelibrary.components.EmailInput
 import com.example.onlinelibrary.components.PasswordInput
 import com.example.onlinelibrary.components.ReaderLogo
+import com.example.onlinelibrary.navigation.ReaderScreens
 
 @Composable
-fun ReaderLoginScreen(navController: NavController) {
+fun ReaderLoginScreen(
+    navController: NavController,
+    viewModel: LoginScreenViewModel = androidx.lifecycle.viewmodel.compose.viewModel()
+) {
     val showLoginForm = rememberSaveable { mutableStateOf(true) }
-
 
     Surface(modifier = Modifier.fillMaxSize()) {
         Column(
@@ -53,7 +56,9 @@ fun ReaderLoginScreen(navController: NavController) {
             ReaderLogo()
             if (showLoginForm.value)
                 UserForm(loading = false, isCreateAccount = false) { email, password ->
-                    //TODO: FB login
+                    viewModel.signInWithEmailAndPassword(email, password) {
+                        navController.navigate(ReaderScreens.ReaderHomeScreen.name)
+                    }
                 }
             else {
                 UserForm(loading = false, isCreateAccount = true) { email, password ->
